@@ -1,0 +1,157 @@
+﻿No,id,파일명,이름,원어,지역,분류,희귀,실루엣 힌트
+001,nekomata,silhouettes/nekomata.png,네코마타,猫又,일본,짐승,,"앉은 고양이, 위로 갈라진 꼬리 두 개"
+002,kitsune,silhouettes/kitsune.png,키츠네,狐,일본,짐승,★,여우 귀 달린 인물 + 풍성한 꼬리
+003,tanuki,silhouettes/tanuki.png,타누키,狸,일본,짐승,,머리 위에 나뭇잎 얹은 너구리
+004,yukionna,silhouettes/yukionna.png,유키온나·유키오토코,雪女,일본,자연,,긴 머리 흩날리는 인물 + 눈송이
+005,karasutengu,silhouettes/karasutengu.png,카라스텐구,烏天狗,일본,산,,부리 달린 얼굴 + 날개 + 깃털 부채
+006,oni,silhouettes/oni.png,오니,鬼,일본,귀신,,뿔 두 개 + 쇠방망이
+007,kappa,silhouettes/kappa.png,갓파,河童,일본,물,,정수리 접시 + 등껍질 + 오이
+008,rokurokubi,silhouettes/rokurokubi.png,로쿠로쿠비,ろくろ首,일본,귀신,,구불구불 길게 늘어난 목
+009,tsuru,silhouettes/tsuru.png,츠루뇨보,鶴女房,일본,짐승,,학 날개 + 베틀
+010,baku,silhouettes/baku.png,바쿠,獏,일본,꿈,,코끼리 코 + 구름 위 짐승
+011,shirohebi,silhouettes/shirohebi.png,시로헤비,白蛇,일본,신의 사자,,똬리 튼 뱀 + 신사 방울
+012,inugami,silhouettes/inugami.png,이누가미,犬神,일본,짐승,,귀 쫑긋한 개 + 목줄
+013,jorogumo,silhouettes/jorogumo.png,조로구모,絡新婦,일본,거미,,인물 뒤로 거미 다리 실루엣
+014,futakuchi,silhouettes/futakuchi.png,후타쿠치,二口女,일본,귀신,,"뒤돌아선 인물, 뒷머리가 손처럼 뻗음"
+015,nurarihyon,silhouettes/nurarihyon.png,누라리횬,ぬらりひょん,일본,귀신,★,길쭉한 뒤통수 + 찻잔 든 인물
+016,kamaitachi,silhouettes/kamaitachi.png,카마이타치,鎌鼬,일본,바람,,회오리 + 낫 든 족제비
+017,honeonna,silhouettes/honeonna.png,호네온나,骨女,일본,귀신,,등롱 든 앙상한 인물
+018,kuchisake,silhouettes/kuchisake.png,쿠치사케,口裂け,일본,도시전설,,마스크 쓴 긴 머리 인물 + 가위
+019,hashihime,silhouettes/hashihime.png,하시히메,橋姫,일본,수호,,아치형 다리 위 서 있는 인물
+020,amabie,silhouettes/amabie.png,아마비에,アマビエ,일본,바다,★,긴 머리 + 부리 + 비늘 꼬리
+021,ningyo,silhouettes/ningyo.png,닌교,人魚,일본,바다,,"물고기 꼬리 인어, 바위 위"
+022,bakeneko,silhouettes/bakeneko.png,바케네코,化け猫,일본,짐승,,두 발로 서서 춤추는 고양이 + 머리 수건
+023,noppera,silhouettes/noppera.png,놋페라보,のっぺらぼう,일본,귀신,,이목구비 없는 매끈한 얼굴의 인물
+024,nue,silhouettes/nue.png,누에,鵺,일본,짐승,★,"구름 위 키메라, 뱀 꼬리"
+025,satori,silhouettes/satori.png,사토리,覚,일본,산,,"털 많은 산짐승 인물, 귀 기울이는 자세"
+026,azukiarai,silhouettes/azukiarai.png,아즈키아라이,小豆洗い,일본,물,,쪼그려 앉아 소쿠리 든 인물
+027,enenra,silhouettes/enenra.png,엔엔라,煙々羅,일본,연기,,연기로 피어오르는 인물
+028,umibozu,silhouettes/umibozu.png,우미보즈,海坊主,일본,바다,,파도 위 거대한 둥근 머리 그림자
+029,ittanmomen,silhouettes/ittanmomen.png,잇탄모멘,一反木綿,일본,천,,하늘을 나는 긴 천
+030,kudagitsune,silhouettes/kudagitsune.png,쿠다기츠네,管狐,일본,사역,,대나무 통에서 빠져나오는 가는 여우
+031,raiju,silhouettes/raiju.png,라이쥬,雷獣,일본,하늘,,번개 두른 족제비 같은 짐승
+032,ameonna,silhouettes/ameonna.png,아메온나·아메오토코,雨女,일본,비,,우산 쓴 인물 + 빗줄기
+033,yamabiko,silhouettes/yamabiko.png,야마비코,山彦,일본,산,,산 능선 위 손나팔 한 인물
+034,okuriinu,silhouettes/okuriinu.png,오쿠리이누,送り犬,일본,짐승,,뒤따라 걷는 큰 개
+035,shojo,silhouettes/shojo.png,쇼조,猩々,일본,바다,,긴 머리 + 술잔 + 술독
+036,makuragaeshi,silhouettes/makuragaeshi.png,마쿠라가에시,枕返し,일본,꿈,,베개를 든 인물
+037,amanojaku,silhouettes/amanojaku.png,아마노자쿠,天邪鬼,일본,귀신,,뒤틀린 자세로 혀 내민 작은 뿔 인물
+038,akaname,silhouettes/akaname.png,아카나메,垢嘗,일본,귀신,,긴 혀 내민 인물 + 욕조
+039,mujina,silhouettes/mujina.png,무지나,狢,일본,짐승,,웅크린 오소리 + 흐릿한 얼굴
+040,kejoro,silhouettes/kejoro.png,케조로,毛倡妓,일본,귀신,,앞뒤로 머리카락이 쏟아진 뒷모습
+041,ushioni,silhouettes/ushioni.png,우시오니,牛鬼,일본,바다,,소뿔 머리 + 거미 다리
+042,nureonna,silhouettes/nureonna.png,누레온나,濡女,일본,물,,젖은 머리 + 뱀 하반신
+043,mizuchi,silhouettes/mizuchi.png,미즈치,蛟,일본,물,★,강물 위로 몸 비튼 뿔 없는 용
+044,tengu,silhouettes/tengu.png,하나타카텐구,鼻高天狗,일본,산,★,긴 코 + 큰 깃털 부채 + 굽 높은 게타
+045,yosuzume,silhouettes/yosuzume.png,요스즈메,夜雀,일본,새,,참새 떼 + 그 사이 인물
+046,nobusuma,silhouettes/nobusuma.png,노부스마,野衾,일본,짐승,,팔 사이 막을 펼친 날다람쥐
+047,tsurube,silhouettes/tsurube.png,츠루베오토시,釣瓶落とし,일본,나무,,나뭇가지에서 떨어지는 커다란 얼굴
+048,kodama,silhouettes/kodama.png,코다마,木霊,일본,숲,,고목 앞에 선 인물 + 나뭇잎
+049,kiyohime,silhouettes/kiyohime.png,키요히메,清姫,일본,뱀,★,범종을 감싼 큰 뱀
+050,fuguruma,silhouettes/fuguruma.png,후구루마요히,文車妖妃,일본,글,,편지 다발을 든 인물 + 수레
+051,dodomeki,silhouettes/dodomeki.png,도도메키,百々目鬼,일본,귀신,,긴 소매 걷은 팔에 수많은 눈
+052,kageonna,silhouettes/kageonna.png,카게온나,影女,일본,그림자,,창호지 너머 비친 실루엣
+053,aoandon,silhouettes/aoandon.png,아오안돈,青行灯,일본,귀신,,푸른 등롱 + 뿔 난 긴 머리 인물
+054,wanyudo,silhouettes/wanyudo.png,와뉴도,輪入道,일본,불,,불타는 바퀴 가운데 얼굴
+055,kasha,silhouettes/kasha.png,카샤,火車,일본,짐승,,불길에 휩싸인 고양이 + 수레
+056,kawauso,silhouettes/kawauso.png,카와우소,獺,일본,물,,삿갓 쓰고 술병 든 수달
+057,komainu,silhouettes/komainu.png,코마이누,狛犬,일본,수호,,입 벌린 사자개 석상
+058,shin,silhouettes/shin.png,신키로,蜃,일본,바다,★,조개에서 피어오르는 누각
+059,sukimaonna,silhouettes/sukimaonna.png,스키마온나,隙間女,일본,도시전설,,벽과 장롱 틈 사이로 보이는 눈
+060,jinmenken,silhouettes/jinmenken.png,진멘켄,人面犬,일본,도시전설,,사람 얼굴의 개 뒷모습
+061,tenjouname,silhouettes/tenjouname.png,텐조나메,天井嘗,일본,집,,천장까지 닿는 마른 키다리
+062,gama,silhouettes/gama.png,오오가마,大蝦蟇,일본,물,,두루마리 문 큰 두꺼비
+063,dokkaebi,silhouettes/dokkaebi.png,도깨비,도깨비,한국,귀신,,뿔 하나 + 도깨비방망이
+064,gumiho,silhouettes/gumiho.png,구미호,九尾狐,한국,짐승,★,꼬리 아홉 갈래로 퍼진 여우
+065,imugi,silhouettes/imugi.png,이무기,이무기,한국,물,★,구름 사이로 솟는 큰 뱀 + 구슬
+066,jangsanbeom,silhouettes/jangsanbeom.png,장산범,장산범,한국,짐승,,"털 긴 네발짐승, 길게 늘어진 갈기"
+067,bulgasari,silhouettes/bulgasari.png,불가사리,不可殺伊,한국,짐승,,곰 같은 몸 + 열쇠 꾸러미 물고 있음
+068,haetae,silhouettes/haetae.png,해태,獬豸,한국,수호,★,뿔 하나 달린 사자 모양 수호수
+069,eodukssini,silhouettes/eodukssini.png,어둑시니,어둑시니,한국,귀신,,점점 커지는 그림자 덩어리
+070,ureong,silhouettes/ureong.png,우렁각시·우렁도령,우렁각시,한국,정령,,우렁이 껍데기 + 밥상
+071,geuseunsae,silhouettes/geuseunsae.png,그슨새,그슨새,한국,비,,짚 도롱이 쓴 인물 + 빗줄기
+072,dueoksini,silhouettes/dueoksini.png,두억시니,두억시니,한국,귀신,,큰 손바닥으로 내리누르는 거구
+073,gangcheori,silhouettes/gangcheori.png,강철이,강철이,한국,하늘,,불길 같은 비늘의 용
+074,geumdwaeji,silhouettes/geumdwaeji.png,금돼지,금돼지,한국,짐승,,금빛 털의 큰 멧돼지
+075,yeongno,silhouettes/yeongno.png,영노,영노,한국,하늘,,비늘 몸 + 큰 입의 탈
+076,yaganggwi,silhouettes/yaganggwi.png,야광귀,夜光鬼,한국,귀신,,체를 든 인물 + 짚신 한 켤레
+077,baisuzhen,silhouettes/baisuzhen.png,백소정,白素貞,중화권,뱀,★,우산 든 인물 + 뱀 꼬리
+078,jiangshi,silhouettes/jiangshi.png,강시,僵尸,중화권,귀신,,팔 뻗은 관복 인물 + 이마 부적
+079,huapi,silhouettes/huapi.png,화피,畫皮,중화권,귀신,,붓을 든 인물 + 벗겨지는 가죽
+080,nian,silhouettes/nian.png,년수,年獸,중화권,짐승,,뿔 + 갈기 + 폭죽 피하는 자세
+081,qilin,silhouettes/qilin.png,기린,麒麟,중화권,영수,★,사슴 몸 + 뿔 하나 + 구름 발
+082,shuigui,silhouettes/shuigui.png,수귀,水鬼,중화권,귀신,,물에서 반쯤 나온 인물 + 젖은 머리
+083,bifang,silhouettes/bifang.png,필방,畢方,중화권,새,★,외다리로 선 학 + 불꽃
+084,baize,silhouettes/baize.png,백택,白澤,중화권,영수,★,눈 여러 개 + 뿔 + 사자 몸
+085,pixiu,silhouettes/pixiu.png,비휴,貔貅,중화권,영수,★,날개 달린 사자 모양 짐승
+086,jiaoren,silhouettes/jiaoren.png,교인,鮫人,중화권,바다,,꼬리 + 떨어지는 진주
+087,jingwei,silhouettes/jingwei.png,정위,精衛,중화권,새,★,돌 문 작은 새 + 바다
+088,shanxiao,silhouettes/shanxiao.png,산소,山魈,중화권,산,,외다리로 뛰는 털 많은 인물
+089,taotie,silhouettes/taotie.png,도철,饕餮,중화권,마수,,청동기 무늬 같은 큰 얼굴
+090,rusalka,silhouettes/rusalka.png,루살카,Русалка,슬라브·북유럽,물,,화관 쓴 긴 머리 인물 + 물가
+091,huldra,silhouettes/huldra.png,훌드라,Huldra,슬라브·북유럽,숲,,긴 치마 아래 소 꼬리
+092,domovoi,silhouettes/domovoi.png,도모보이,Домовой,슬라브·북유럽,집,,수염 덥수룩한 인물 + 난로
+093,leshy,silhouettes/leshy.png,레시,Леший,슬라브·북유럽,숲,,사슴뿔 + 나무 같은 거인
+094,nokken,silhouettes/nokken.png,뇌켄,Näcken,슬라브·북유럽,물,,물가 바위 위 바이올린 켜는 인물
+095,vila,silhouettes/vila.png,빌라,Вила,슬라브·북유럽,숲,,날개옷 + 긴 머리 + 바람
+096,kikimora,silhouettes/kikimora.png,키키모라,Кикимора,슬라브·북유럽,집,,물레 돌리는 마른 인물
+097,poludnitsa,silhouettes/poludnitsa.png,폴루드니차,Полудница,슬라브·북유럽,들,,낫 든 흰 옷 인물 + 밀밭
+098,troll,silhouettes/troll.png,트롤,Troll,슬라브·북유럽,산,,바위 같은 큰 몸 + 긴 코
+099,vampire,silhouettes/vampire.png,뱀파이어,Vampire,유럽,귀족,,높은 깃 망토 + 박쥐
+100,selkie,silhouettes/selkie.png,셀키,Selkie,유럽,바다,,물개 가죽을 두른 인물
+101,werewolf,silhouettes/werewolf.png,늑대인간,Werewolf,유럽,짐승,,달 앞에서 울부짖는 늑대 인물
+102,dryad,silhouettes/dryad.png,드라이어드,Dryad,유럽,숲,,나뭇가지가 얽힌 인물
+103,banshee,silhouettes/banshee.png,밴시,Banshee,유럽,귀신,,긴 머리 휘날리며 우는 인물 + 빗
+104,brownie,silhouettes/brownie.png,브라우니,Brownie,유럽,집,,빗자루 든 작은 체구 인물(성인)
+105,muma,silhouettes/muma.png,몽마,Succubus·Incubus,유럽,꿈,,박쥐 날개 + 가는 꼬리
+106,fae,silhouettes/fae.png,페이,Fae,유럽,요정,,뾰족한 귀 + 얇은 날개
+107,gargoyle,silhouettes/gargoyle.png,가고일,Gargoyle,유럽,돌,,웅크린 날개 달린 석상
+108,doppelganger,silhouettes/doppelganger.png,도플갱어,Doppelgänger,유럽,그림자,,마주 선 똑같은 두 인물
+109,melusine,silhouettes/melusine.png,멜뤼진,Mélusine,유럽,물,,날개 + 뱀 꼬리의 여인상
+110,undine,silhouettes/undine.png,운디네,Undine,유럽,물,,물결로 이어진 인물
+111,kelpie,silhouettes/kelpie.png,켈피,Kelpie,유럽,물,,물 위를 달리는 말
+112,hobgoblin,silhouettes/hobgoblin.png,홉고블린,Hobgoblin,유럽,집,,뾰족 귀 + 등불 든 인물
+113,leprechaun,silhouettes/leprechaun.png,레프리콘,Leprechaun,유럽,요정,,모자 쓴 인물 + 구두 + 금단지
+114,pooka,silhouettes/pooka.png,푸카,Púca,유럽,요정,,토끼 귀 인물 + 말 그림자
+115,krampus,silhouettes/krampus.png,크람푸스,Krampus,유럽,마물,,큰 뿔 + 털 + 방울 사슬
+116,lorelei,silhouettes/lorelei.png,로렐라이,Lorelei,유럽,물,,바위 위 머리 빗는 인물
+117,golem,silhouettes/golem.png,골렘,Golem,유럽,흙,,이마에 글자 새긴 거구
+118,willowisp,silhouettes/willowisp.png,윌 오 위스프,Will-o'-the-wisp,유럽,불,,늪 위 떠다니는 불빛 + 등불 든 인물
+119,mara,silhouettes/mara.png,마라,Mara,유럽,꿈,,잠든 이 위에 웅크린 그림자
+120,siren,silhouettes/siren.png,세이렌,Seirēn,그리스,바다,,바위 위 노래하는 인물 + 깃털
+121,lamia,silhouettes/lamia.png,라미아,Lamia,그리스,뱀,,왕관 + 뱀 하반신
+122,gorgon,silhouettes/gorgon.png,고르곤,Gorgōn,그리스,뱀,,뱀 머리카락 + 선글라스
+123,satyr,silhouettes/satyr.png,사티로스,Satyros,그리스,숲,,염소 다리 + 갈대 피리
+124,nymph,silhouettes/nymph.png,님프,Nymphē,그리스,자연,,물항아리 든 인물
+125,empusa,silhouettes/empusa.png,엠푸사,Empousa,그리스,마물,,한쪽 청동 다리의 인물
+126,sphinx,silhouettes/sphinx.png,스핑크스,Sphinx,그리스,수수께끼,★,엎드린 사자 몸 + 사람 머리
+127,djinn,silhouettes/djinn.png,진,جن,중동,정령,,램프에서 피어오르는 연기 인물
+128,ghoul,silhouettes/ghoul.png,구울,غول,중동,사막,,후드 쓴 인물 + 모래바람
+129,peri,silhouettes/peri.png,페리,پری,중동,요정,,큰 깃털 날개를 접은 인물
+130,ifrit,silhouettes/ifrit.png,이프리트,عفريت,중동,정령,★,연기 위 불꽃 몸 거인
+131,lamassu,silhouettes/lamassu.png,라마수,Lamassu,중동,수호,★,날개 + 황소 몸 + 수염 얼굴
+132,naga,silhouettes/naga.png,나가,नाग,남·동남아시아,뱀,★,머리 위로 펼친 뱀 후드
+133,rakshasa,silhouettes/rakshasa.png,락샤사,राक्षस,남·동남아시아,마족,,송곳니 + 거꾸로 선 손바닥
+134,aswang,silhouettes/aswang.png,아스왕,Aswang,남·동남아시아,마물,,반은 사람 반은 날개 달린 짐승
+135,pontianak,silhouettes/pontianak.png,폰티아낙,Pontianak,남·동남아시아,귀신,,흰 옷 긴 머리 + 꽃
+136,diwata,silhouettes/diwata.png,디와타,Diwata,남·동남아시아,숲,,꽃 장식 인물 + 산
+137,apsara,silhouettes/apsara.png,압사라,अप्सरा,남·동남아시아,하늘,,춤추는 자세 + 하늘 띠
+138,yakshi,silhouettes/yakshi.png,약시,യക്ഷി,남·동남아시아,귀신,,야자나무 아래 긴 머리 인물
+139,kinnari,silhouettes/kinnari.png,킨나리,กินรี,남·동남아시아,새,,새 하반신 + 춤추는 자세
+140,leyak,silhouettes/leyak.png,레야크,Leyak,남·동남아시아,마물,,불빛 속 떠다니는 머리 + 긴 혀
+141,barong,silhouettes/barong.png,바롱,Barong,남·동남아시아,수호,,금박 갈기 + 큰 눈의 사자 탈
+142,mamiwata,silhouettes/mamiwata.png,마미 와타,Mami Wata,아프리카,물,★,물고기 꼬리 + 거울 + 목에 감긴 뱀
+143,anansi,silhouettes/anansi.png,아난시,Anansi,아프리카,거미,★,거미줄 위 이야기 꾸러미 든 인물
+144,impundulu,silhouettes/impundulu.png,임펀둘루,Impundulu,아프리카,하늘,,번개 두른 큰 새
+145,ba,silhouettes/ba.png,바,Ba,아프리카,혼,,사람 얼굴의 새
+146,llorona,silhouettes/llorona.png,라 요로나,La Llorona,아메리카,귀신,,흰 드레스 + 강가
+147,encantado,silhouettes/encantado.png,엔칸타도,Encantado,아메리카,물,,모자 쓴 인물 + 돌고래
+148,wendigo,silhouettes/wendigo.png,웬디고,Wendigo,아메리카,마물,,사슴뿔 + 마른 거구 + 눈보라
+149,curupira,silhouettes/curupira.png,쿠루피라,Curupira,아메리카,숲,,붉은 머리 + 뒤로 달린 발
+150,iara,silhouettes/iara.png,이아라,Iara,아메리카,물,,물고기 꼬리 + 긴 머리 + 강
+151,nahual,silhouettes/nahual.png,나우알,Nahual,아메리카,짐승,,재규어 그림자를 거느린 인물
+152,cihuateteo,silhouettes/cihuateteo.png,시과나바,Cegua·Siguanaba,아메리카,귀신,,긴 머리 뒷모습 + 강가
+153,bunyip,silhouettes/bunyip.png,버닙,Bunyip,오세아니아,물,,늪 위 털 많은 큰 짐승
+154,taniwha,silhouettes/taniwha.png,타니와,Taniwha,오세아니아,물,★,물결 문양 몸 + 큰 눈
+155,patupaiarehe,silhouettes/patupaiarehe.png,파투파이아레헤,Patupaiarehe,오세아니아,요정,,안개 속 피리 부는 인물
+156,nanaue,silhouettes/nanaue.png,나나우에,Nanaue,오세아니아,바다,,망토 걸친 인물 + 상어 지느러미
