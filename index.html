@@ -236,7 +236,7 @@ footer{text-align:center;color:var(--ink3);font-size:14px;margin-top:44px}
 <section class="panel" id="p-ooc">
   <div class="box">
     <h2>나만의 설정 만들기</h2>
-    <p class="hint" style="margin-top:4px">뽑기 대신 AI에게 직접 맡기는 방법이에요. 아래 조건을 고르면 OOC 문장이 만들어지고, 채팅창에 붙여 넣으면 내 정체를 설명하는 간단 도감과 유저노트용 압축본이 나와요. 자유설정이면 새로 쌓을 서사의 뼈대도, 원하면 첫 추천 답변도 같이 받을 수 있어요.</p>
+    <p class="hint" style="margin-top:4px">뽑기 대신 AI에게 직접 맡기는 방법이에요. 아래 조건을 고르면 OOC 문장이 만들어지고, 채팅창에 붙여 넣으면 내 정체를 설명하는 간단 도감과 유저노트용 압축본이 나와요. 손님·알바생이면 첫 추천 답변도 같이 받을 수 있고, 자유설정이면 새 관계를 정한 뒤 그 이야기로 바로 롤플레이가 시작돼요.</p>
     <div class="opts" style="margin-top:14px">
       <label>정체
         <select id="oType" data-o>
@@ -284,7 +284,9 @@ footer{text-align:center;color:var(--ink3);font-size:14px;margin-top:44px}
         <option value="rival">가게를 노리는 세력</option>
       </select>
     </label>
-    <label class="ocheck"><input type="checkbox" id="oReply" data-o checked> 첫 추천 답변도 같이 받기</label>
+    <p class="hint" id="oStartHint" style="display:none;margin:-4px 0 14px;color:var(--gold)">자유설정(3)으로 시작한 채팅의 첫 입력에 이 OOC를 넣으세요. 도감과 유저노트가 먼저 나오고, 이어서 '지금까지의 이야기'로 롤플레이가 바로 시작돼요.</p>
+    <label class="ocheck"><input type="checkbox" id="oTalk" data-o checked> 간단 도감에 이오리·쿠로 한마디 넣기</label>
+    <label class="ocheck" id="oReplyWrap"><input type="checkbox" id="oReply" data-o checked> 첫 추천 답변도 같이 받기</label>
     <label class="olabel">더 바라는 점 <small>(없으면 비워 둬도 돼요)</small>
       <textarea id="oExtra" data-o rows="2" placeholder="예: 비 오는 날과 관련된 요괴였으면 좋겠어 / 쿠로와 구면이었으면 좋겠어"></textarea>
     </label>
@@ -624,10 +626,10 @@ let tt; function toast(m){ const el=$("#toast"); el.textContent=m; el.classList.
 
 /* OOC */
 function genOOC(){
-  const type=$("#oType").value, reg=$("#oRegion").value, prof=$("#oProf").value, start=$("#oStart").value, len=$("#oLen").value, extra=$("#oExtra").value.trim(), seed=$("#oSeed").value, wantReply=$("#oReply").checked;
+  const type=$("#oType").value, reg=$("#oRegion").value, prof=$("#oProf").value, start=$("#oStart").value, len=$("#oLen").value, extra=$("#oExtra").value.trim(), seed=$("#oSeed").value, wantTalk=$("#oTalk").checked, wantReply=$("#oReply").checked && start!=="3";
   const ro = s => s+(jong(s)?"으로":"로");
   const L=[];
-  L.push("(OOC: 롤플레이는 잠시 멈추고 이 요청만 처리해 줘. HUD와 장면 서술 없이 아래 블록들만 순서대로 출력해 줘.)");
+  L.push(start==="3" ? "(OOC: 아래 블록들을 HUD 없이 먼저 출력하고, 그다음 바로 롤플레이를 시작해 줘.)" : "(OOC: 롤플레이는 잠시 멈추고 이 요청만 처리해 줘. HUD와 장면 서술 없이 아래 블록들만 순서대로 출력해 줘.)");
   L.push("");
   L.push("요하쿠도 세계관(프롬프트 설정)과 현재 내 프로필을 바탕으로, 이 세계에 어울리는 내 설정을 만들어 줘.");
   L.push("");
@@ -669,31 +671,24 @@ function genOOC(){
   L.push("**숨기지 못하는 특징**: (사람 모습일 때도 드러나는 버릇이나 흔적)");
   L.push("**약점·금기**: (무엇) → (건드리면 실제로 생기는 일)");
   L.push("**요하쿠도에 온 이유**: (한 문장)");
-  L.push("");
-  L.push("이어서 나를 처음 본 이오리와 쿠로가 한마디씩 주고받는 대사. 롤플레이 출력과 같은 형식으로:");
-  L.push("**─伊織 |** *이오리*");
-  L.push("“(일본어 대사)”");
-  L.push("*『(한국어 번역)』*");
-  L.push("**─玄 |** *쿠로*");
-  L.push("“(이오리 말을 받아치는 일본어 대사)”");
-  L.push("*『(한국어 번역)』*");
-  L.push("");
-  if(start==="3"){
-    L.push("[자유설정 서사] 새로 쌓을 이야기의 뼈대. 항목 제목은 **굵게**, 핵심 단어도 **굵게**.");
-    L.push("**【자유설정 서사】**");
-    L.push("**관계**: (쿠로·이오리·요하쿠도와 나의 관계 한 줄)");
-    L.push("**지금까지의 이야기**: (3~4문장)");
-    L.push("**쿠로와는**: (쿠로가 나를 어떻게 대하는지, 둘 사이에 남은 것)");
-    L.push("**이오리와는**: (이오리가 나를 어떻게 받아들이는지)");
-    L.push("**처음 꺼낼 떡밥**: (롤플레이 초반에 슬쩍 드러낼 만한 것 한 줄)");
+  if(wantTalk){
     L.push("");
+    L.push("이어서 나를 본 이오리와 쿠로가 한마디씩 주고받는 대사. 롤플레이 출력과 같은 형식으로:");
+    L.push("**─伊織 |** *이오리*");
+    L.push("“(일본어 대사)”");
+    L.push("*『(한국어 번역)』*");
+    L.push("**─玄 |** *쿠로*");
+    L.push("“(이오리 말을 받아치는 일본어 대사)”");
+    L.push("*『(한국어 번역)』*");
   }
+  L.push("");
   if(len==="150"){
     L.push("[유저노트] 위 내용을 150자 이내로 꽉 압축. 굵게 등 꾸밈 없이 일반 텍스트로, 각 줄은 단어 위주로 짧게.");
     L.push("【유저노트】");
     L.push("정체: (이름·정체 한 줄)");
     L.push("성별 / 실제 N세 / 외형 N세");
     L.push(start==="3" ? "신분: (위장 신분 또는 직업) / 입장: (요하쿠도와의 관계)" : "신분: (위장 신분 또는 직업)");
+    if(start==="3") L.push("관계: 쿠로-(짧게) / 이오리-(짧게)");
     L.push("쿠로 말: (알아들음 등)");
     L.push("특징: (짧게)");
     L.push("약점: (무엇) → (결과)");
@@ -707,10 +702,17 @@ function genOOC(){
     L.push("실제 나이: N세");
     L.push("외형: N세");
     L.push("위장 신분: (인간이면 '직업:', 직업명만)");
-    if(start==="3") L.push("요하쿠도에서의 입장:");
+    if(start==="3"){ L.push("요하쿠도에서의 입장:"); L.push("쿠로와의 관계:"); L.push("이오리와의 관계:"); }
     L.push("쿠로(고양이)의 말:");
     L.push("약점: (무엇) → (결과)");
     L.push("🔒비밀:");
+  }
+  if(start==="3"){
+    L.push("");
+    L.push("[이야기 시작] 블록 출력이 끝나면 곧바로 롤플레이를 시작해. 여기부터는 평소 롤플레이 출력 형식(HUD, 대사 형식)을 따를 것.");
+    L.push("--지금까지의 이야기--");
+    L.push("(정한 관계를 바탕으로 내가 지금 요하쿠도에 서기까지의 일을 롤플레이 본문처럼 서술. 쿠로·이오리와의 관계와 숨은 떡밥이 장면 속에 자연스럽게 묻어나게.)");
+    L.push("(이어서 지금 장면으로 넘어와, 이오리나 쿠로가 나에게 말을 걸거나 내가 막 입을 열려는 순간에서 끝낼 것. 내 대사·행동·속마음은 대신 쓰지 말 것.)");
   }
   if(wantReply){
     const sc = start==="1" ? "처음 요하쿠도에 손님으로 들어서는 장면" : start==="2" ? "새 알바생으로 첫 출근한 장면" : "위 자유설정 서사가 시작되는 장면";
@@ -722,7 +724,7 @@ function genOOC(){
   }
   return L.join("\n");
 }
-function renderOOC(){ $("#oSeedWrap").style.display = $("#oStart").value==="3" ? "" : "none"; const ta=$("#oocTa"); ta.value=genOOC(); $("#oocCnt").textContent=`${ta.value.length}자`; fit(ta); }
+function renderOOC(){ const s3=$("#oStart").value==="3"; $("#oSeedWrap").style.display = s3 ? "" : "none"; $("#oStartHint").style.display = s3 ? "" : "none"; $("#oReplyWrap").style.display = s3 ? "none" : ""; const ta=$("#oocTa"); ta.value=genOOC(); $("#oocCnt").textContent=`${ta.value.length}자`; fit(ta); }
 document.querySelectorAll("[data-o]").forEach(el=>{ el.addEventListener("input",renderOOC); el.addEventListener("change",renderOOC); });
 $("#oocTa").addEventListener("input",e=>{ $("#oocCnt").textContent=`${e.target.value.length}자`; fit(e.target); });
 $("#oocCopy").onclick=()=>copy($("#oocTa").value);
