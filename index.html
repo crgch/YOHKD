@@ -172,6 +172,7 @@ dialog .box{max-height:88vh;overflow:auto;background:#121016}
 .ofuda textarea{resize:none;background:transparent;border:0;padding:0;font-size:15.5px;line-height:1.75;color:#dfe9ef}
 .ofuda textarea:focus{outline:none}
 .bgmBtn{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:8;width:56px;height:56px;border-radius:50%;border:1px solid var(--line2);background:radial-gradient(circle at 50% 40%,#1f1a26,#0c0a10);color:var(--ink3);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0;box-shadow:0 6px 18px rgba(0,0,0,.6);transition:.25s}
+.bgmBtn:active{transform:scale(.92)}
 .bgmBtn .bgmT{font-size:10px;letter-spacing:2px;font-family:"Noto Serif KR",serif}
 .bgmBtn .eq{display:flex;align-items:flex-end;gap:3px;height:16px}
 .bgmBtn .eq i{display:block;width:3px;height:5px;border-radius:2px;background:currentColor}
@@ -198,10 +199,7 @@ footer{text-align:center;color:var(--ink3);font-size:14px;margin-top:44px}
 </head>
 <body>
 <div id="wisps" aria-hidden="true"></div>
-<audio id="bgm" loop preload="none">
-  <source src="Midnight_Antique_Shop_x_Midnight_Antique_Shop_Mashup.mp3" type="audio/mpeg">
-  <source src="bgm.mp3" type="audio/mpeg">
-</audio>
+<audio id="bgm" loop preload="none"></audio>
 <button class="bgmBtn" id="bgmBtn" aria-label="배경 음악 켜기" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="bgmT">BGM</span></button>
 <div class="wrap">
 <header>
@@ -352,18 +350,21 @@ const store = {
   set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
 };
 let seen = new Set(store.get("yhd_dex",[]));
-/* BGM */
+/* BGM : index.html과 같은 위치의 mp3를 이름 후보 순서대로 찾음 */
+const BGM_FILES=["bgm.mp3","Midnight_Antique_Shop_x_Midnight_Antique_Shop_Mashup.mp3","Midnight Antique Shop x Midnight Antique Shop Mashup.mp3","Midnight_Antique_Shop_x_Midnight_Antique_Shop_Mashup.MP3","BGM.mp3"];
 (function(){
-  const bgm=$("#bgm"), bb=$("#bgmBtn"); let fadeT;
+  const bgm=$("#bgm"), bb=$("#bgmBtn"); let fadeT, idx=-1, found=false, failed=false, wantPlay=false;
   const ui=on=>{ bb.classList.toggle("on",on); bb.setAttribute("aria-pressed",on); bb.setAttribute("aria-label",on?"배경 음악 끄기":"배경 음악 켜기"); };
-  const fadeTo=(v,ms,done)=>{ clearInterval(fadeT); const st=bgm.volume, steps=20; let i=0; fadeT=setInterval(()=>{ i++; bgm.volume=Math.max(0,Math.min(1,st+(v-st)*i/steps)); if(i>=steps){ clearInterval(fadeT); done&&done(); } }, ms/steps); };
-  const play=()=>{ bgm.volume=0; return bgm.play().then(()=>{ ui(true); fadeTo(.45,1200); store.set("yhd_bgm",1); }).catch(()=>{ ui(false); }); };
-  const stop=()=>{ fadeTo(0,500,()=>bgm.pause()); ui(false); store.set("yhd_bgm",0); };
-  bb.onclick=e=>{ e.stopPropagation(); if(bgm.paused || bb.classList.contains("on")===false) play().then(()=>{ if(bgm.paused) toast("음악 파일을 찾지 못했어요"); }); else stop(); };
-  bgm.addEventListener("error",()=>{ ui(false); }, true);
+  const fadeTo=(v,ms,done)=>{ clearInterval(fadeT); const st=bgm.volume, steps=20; let i=0; fadeT=setInterval(()=>{ i++; try{ bgm.volume=Math.max(0,Math.min(1,st+(v-st)*i/steps)); }catch(e){} if(i>=steps){ clearInterval(fadeT); done&&done(); } }, ms/steps); };
+  const next=()=>{ idx++; if(idx>=BGM_FILES.length){ failed=true; ui(false); if(wantPlay) toast("노래 파일을 찾지 못했어요. index.html 옆에 bgm.mp3로 올려 주세요"); return false; } bgm.src=encodeURI(BGM_FILES[idx]); bgm.load(); return true; };
+  bgm.addEventListener("error",()=>{ if(!found && next() && wantPlay) tryPlay(); });
+  bgm.addEventListener("loadedmetadata",()=>{ found=true; });
+  const tryPlay=()=>{ try{ bgm.volume=0; }catch(e){} const p=bgm.play(); if(p&&p.then) p.then(()=>{ found=true; ui(true); fadeTo(.45,1200); store.set("yhd_bgm",1); }).catch(err=>{ if(err && err.name==="NotAllowedError"){ ui(false); } }); };
+  const play=()=>{ wantPlay=true; if(failed){ toast("노래 파일을 찾지 못했어요. index.html 옆에 bgm.mp3로 올려 주세요"); return; } if(idx<0) next(); tryPlay(); };
+  const stop=()=>{ wantPlay=false; fadeTo(0,500,()=>bgm.pause()); ui(false); store.set("yhd_bgm",0); };
+  bb.onclick=e=>{ e.stopPropagation(); if(bb.classList.contains("on")) stop(); else play(); };
   if(store.get("yhd_bgm",1)){
-    bgm.preload="auto";
-    play();
+    play(); wantPlay=false;
     const EV=["pointerdown","click","keydown","touchend"];
     const once=e=>{ if(e.target.closest && e.target.closest("#bgmBtn")) return; EV.forEach(n=>document.removeEventListener(n,once,true)); if(bgm.paused) play(); };
     EV.forEach(n=>document.addEventListener(n,once,true));
