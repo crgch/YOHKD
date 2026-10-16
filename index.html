@@ -171,6 +171,16 @@ dialog .box{max-height:88vh;overflow:auto;background:#121016}
 .ofuda::before{content:"OOC";position:absolute;top:-11px;left:14px;padding:0 8px;font-size:12px;letter-spacing:3px;color:var(--fire);background:var(--bg)}
 .ofuda textarea{resize:none;background:transparent;border:0;padding:0;font-size:15.5px;line-height:1.75;color:#dfe9ef}
 .ofuda textarea:focus{outline:none}
+.bgmBtn{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:8;width:56px;height:56px;border-radius:50%;border:1px solid var(--line2);background:radial-gradient(circle at 50% 40%,#1f1a26,#0c0a10);color:var(--ink3);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0;box-shadow:0 6px 18px rgba(0,0,0,.6);transition:.25s}
+.bgmBtn .bgmT{font-size:10px;letter-spacing:2px;font-family:"Noto Serif KR",serif}
+.bgmBtn .eq{display:flex;align-items:flex-end;gap:3px;height:16px}
+.bgmBtn .eq i{display:block;width:3px;height:5px;border-radius:2px;background:currentColor}
+.bgmBtn.on{color:var(--fire);border-color:rgba(134,230,255,.6);box-shadow:0 0 18px rgba(134,230,255,.35),0 6px 18px rgba(0,0,0,.6)}
+.bgmBtn.on .eq i{animation:eq 1s ease-in-out infinite}
+.bgmBtn.on .eq i:nth-child(2){animation-delay:-.3s}.bgmBtn.on .eq i:nth-child(3){animation-delay:-.6s}.bgmBtn.on .eq i:nth-child(4){animation-delay:-.15s}
+.bgmBtn:not(.on) .eq i:nth-child(2){height:9px}.bgmBtn:not(.on) .eq i:nth-child(3){height:12px}.bgmBtn:not(.on) .eq i:nth-child(4){height:7px}
+@keyframes eq{0%,100%{height:4px}50%{height:16px}}
+@media (prefers-reduced-motion:reduce){.bgmBtn.on .eq i{animation:none;height:10px}}
 .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#1d1a22;border:1px solid var(--line2);color:var(--ink);padding:10px 20px;border-radius:999px;font-size:16px;opacity:0;transition:.25s;pointer-events:none;z-index:9;box-shadow:0 0 18px rgba(134,230,255,.2)}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 footer{text-align:center;color:var(--ink3);font-size:14px;margin-top:44px}
@@ -188,6 +198,11 @@ footer{text-align:center;color:var(--ink3);font-size:14px;margin-top:44px}
 </head>
 <body>
 <div id="wisps" aria-hidden="true"></div>
+<audio id="bgm" loop preload="none">
+  <source src="Midnight_Antique_Shop_x_Midnight_Antique_Shop_Mashup.mp3" type="audio/mpeg">
+  <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+<button class="bgmBtn" id="bgmBtn" aria-label="배경 음악 켜기" aria-pressed="false"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="bgmT">BGM</span></button>
 <div class="wrap">
 <header>
   <div class="seal" aria-label="余白堂"><span>余</span><span>白</span><span>堂</span></div>
@@ -337,6 +352,23 @@ const store = {
   set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
 };
 let seen = new Set(store.get("yhd_dex",[]));
+/* BGM */
+(function(){
+  const bgm=$("#bgm"), bb=$("#bgmBtn"); let fadeT;
+  const ui=on=>{ bb.classList.toggle("on",on); bb.setAttribute("aria-pressed",on); bb.setAttribute("aria-label",on?"배경 음악 끄기":"배경 음악 켜기"); };
+  const fadeTo=(v,ms,done)=>{ clearInterval(fadeT); const st=bgm.volume, steps=20; let i=0; fadeT=setInterval(()=>{ i++; bgm.volume=Math.max(0,Math.min(1,st+(v-st)*i/steps)); if(i>=steps){ clearInterval(fadeT); done&&done(); } }, ms/steps); };
+  const play=()=>{ bgm.volume=0; return bgm.play().then(()=>{ ui(true); fadeTo(.45,1200); store.set("yhd_bgm",1); }).catch(()=>{ ui(false); }); };
+  const stop=()=>{ fadeTo(0,500,()=>bgm.pause()); ui(false); store.set("yhd_bgm",0); };
+  bb.onclick=e=>{ e.stopPropagation(); if(bgm.paused || bb.classList.contains("on")===false) play().then(()=>{ if(bgm.paused) toast("음악 파일을 찾지 못했어요"); }); else stop(); };
+  bgm.addEventListener("error",()=>{ ui(false); }, true);
+  if(store.get("yhd_bgm",1)){
+    bgm.preload="auto";
+    play();
+    const EV=["pointerdown","click","keydown","touchend"];
+    const once=e=>{ if(e.target.closest && e.target.closest("#bgmBtn")) return; EV.forEach(n=>document.removeEventListener(n,once,true)); if(bgm.paused) play(); };
+    EV.forEach(n=>document.addEventListener(n,once,true));
+  }
+})();
 function markSeen(id){ if(!seen.has(id)){ seen.add(id); store.set("yhd_dex",[...seen]); } }
 
 function sil(src, ch){
