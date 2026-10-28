@@ -401,8 +401,8 @@ document.addEventListener("load", e=>{ if(e.target.tagName==="IMG" && e.target.c
 
 /* ---------- mode (safe / 19) ---------- */
 let MODE = store.get("yhd_mode","safe")==="19" ? "19" : "safe";
-const START_LBL = { safe:{1:"손님",2:"알바생",3:"자유설정"}, "19":{1:"보름밤의 손님",2:"멈춘 시간",3:"자유설정"} };
-const MODE_HINT = { safe:"SAFE · 1 비 오는 해질녘의 손님 · 2 알바 면접 · 3 자유설정", "19":"19 · 1 보름밤, 경대 거울 앞 · 2 새벽 2시 13분, 멈춘 시간 · 3 자유설정" };
+const START_LBL = { safe:{1:"손님",2:"알바생",3:"자유설정"}, "19":{1:"멈춘 시간",2:"여우 혼례의 밤",3:"자유설정"} };
+const MODE_HINT = { safe:"SAFE · 1 비 오는 해질녘의 손님 · 2 알바 면접 · 3 자유설정", "19":"19 · 1 새벽 2시 13분, 멈춘 시간 · 2 축제 밤, 여우 혼례 행렬 · 3 자유설정" };
 function applyMode(){
   document.querySelectorAll(".modeSw button").forEach(b=>b.classList.toggle("on", b.dataset.mode===MODE));
   document.documentElement.dataset.theme = MODE==="19" ? "night" : "dusk";
@@ -578,9 +578,9 @@ const OPEN19={
   2:["내민 손과 카운터에 엎드린 남자를 번갈아 본다.","하얗게 흩어지는 입김 너머로 떨리는 손끝을 내려다본다."]
 };
 const BEAT19={
-  other:{1:["거울에 비친 모습이 반 박자 늦게, 사람의 윤곽에서 살짝 어긋난다.","하얀 천 아래 물건들이 일제히 이쪽으로 기운 것 같다. 숨겨 둔 기척을 알아챈 듯이."],
-         2:["멈춘 공기 속에서도 숨겨 둔 기척만은 멈추지 않고 일렁인다.","하얀 입김 사이로, 사람 흉내를 내던 끝자락이 살짝 풀린다."]},
-  human:{1:"하얀 천 아래로는 아무 기척도 없는데, 등골이 자꾸 서늘하다.",2:"멈춘 시계들 사이에서, 제 심장 소리만 유난히 크게 들린다."}
+  other:{1:["멈춘 공기 속에서도 숨겨 둔 기척만은 멈추지 않고 일렁인다.","하얀 입김 사이로, 사람 흉내를 내던 끝자락이 살짝 풀린다."],
+         2:["불꽃이 터질 때마다 그림자가 반 박자 늦게, 사람의 윤곽에서 살짝 어긋난다.","행렬의 방울 소리에 숨겨 둔 기척이 저도 모르게 대답하듯 일렁인다."]},
+  human:{1:"멈춘 시계들 사이에서, 제 심장 소리만 유난히 크게 들린다.",2:"불꽃 소리 사이로 아직 방울 소리가 귓가에 맴돈다."}
 };
 const GENBEAT={
   "요괴":["사람 흉내가 아직 서툰지, 몸짓 하나가 반 박자씩 늦다.","낯익은 냄새라도 맡은 듯 코끝이 한 번 움찔한다."],
@@ -601,8 +601,8 @@ function pickBeat(b,s,tp){
   return pool[tp % pool.length];
 }
 const LINE19={
-  1:["……얼굴을 빌려 달라니, 무슨 뜻이에요?","당신, 누구예요? 왜 거울 안에 있어요?","빌려주면…… 돌려는 주는 거죠?","손이 너무 차가워요. 이거, 좀 놓아주면 안 돼요?","싫다고 하면 어떻게 되는데요?","……누구를 그렇게 오래 기다렸어요?"],
-  2:["도와 달라니, 뭘요? 저 사람은 왜 저래요?","……알겠어요. 뭐부터 하면 돼요?","잠깐, 그 귀…… 아니, 지금 그게 중요한 게 아니지.","시계가 전부 멈춘 거, 이거 때문이에요?","저 사람, 숨은 쉬고 있는 거죠?","날 밝기 전까지라고 했죠. 얼마나 남았어요?"]
+  1:["……빌려줄게요. 대신 무슨 일인지는 얘기해 줘요.","따뜻해서 빌리는 거라면서, 귀는 왜 그래요?","옆에만 있으면 된다니…… 그게 다예요?","잠깐이면 돼요? ……안 움직일게요.","손이 너무 차가워요. 이러다 당신도 멈추는 거 아니에요?","날 밝을 때까지면, 얼마나 남았어요?"],
+  2:["……방금 그 사람들, 가면 아니었죠?","따라가면 안 되는 거라니, 저게 다 뭔데요?","손…… 얼마나 더 잡고 있어야 해요?","저 사람들, 아직 이쪽 보고 있어요.","당신은 누구예요? 왜 저를 끌어냈어요?","……고마워요. 근데 손이 엄청 뜨겁네요."]
 };
 function reply(){ const r=reply0(true); return r.length<=200 ? r : reply0(false); }
 function reply0(withItem){
@@ -615,7 +615,7 @@ function reply0(withItem){
   const hand = on ? ` 손에는 ${iga(nm)} 들려 있다.` : "";
   if(MODE==="19" && s<3){
     const bt = beat;
-    const nar = s===1 ? `${A} 골목에 들어섰는데, 정신을 차려 보니 이 가게 안이었다.` : `${A} 골목 끝까지 왔는데, 그새 시계가 전부 멈춰 있었다.`;
+    const nar = s===1 ? `${A} 골목 끝까지 왔는데, 그새 시계가 전부 멈춰 있었다.` : `${A} 나온 밤이었는데, 축제 인파에 섞였다가 어느새 가면 행렬에 휩쓸려 있었다.`;
     return `*${bt} ${nar}${hand}*\n"${LINE19[s][tp%LINE19[s].length]}"`;
   }
   if(s===1){
@@ -764,8 +764,8 @@ function genOOC(){
     deep:"나는 요하쿠도 가장 안쪽, 이오리도 쿠로도 가 본 적 없는 곳에서 걸어 나온 존재야.",
     rival:"나는 요하쿠도를 노리는 다른 가게나 세력에서 온 존재야. 적인지 아닌지는 아직 애매하게."
   };
-  if(MODE==="19" && start==="1") L.push("- 나는 보름밤, 홀린 듯 요하쿠도에 처음 들어온 사람이야. 이오리·쿠로·후유코와는 초면이고 이름도 몰라.");
-  else if(MODE==="19" && start==="2") L.push("- 나는 상점가 시계가 전부 멈춘 새벽, 요하쿠도에 처음 들어온 사람이야. 이오리·쿠로와는 초면이고 이름도 몰라.");
+  if(MODE==="19" && start==="2") L.push("- 나는 오봉 불꽃놀이 밤 상점가 축제에서 여우 혼례 행렬에 휩쓸렸다가, 처음 보는 남자(이오리)에게 손목을 잡혀 끌려 나온 사람이야. 이오리·쿠로와는 초면이고 이름도 몰라.");
+  else if(MODE==="19" && start==="1") L.push("- 나는 상점가 시계가 전부 멈춘 새벽, 요하쿠도에 처음 들어온 사람이야. 이오리·쿠로와는 초면이고 이름도 몰라.");
   else if(start==="1") L.push("- 나는 요하쿠도에 처음 온 손님이야. 이오리·쿠로와는 초면이고 이름도 몰라.");
   else if(start==="2") L.push("- 나는 요하쿠도 알바 면접을 보러 왔다가 방금 합격한 사람이야. 이오리·쿠로와는 초면이고 이름도 몰라.");
   else {
@@ -784,13 +784,13 @@ function genOOC(){
   L.push("**숨기지 못하는 특징**: (사람 모습일 때도 드러나는 버릇이나 흔적)");
   L.push("**약점·금기**: (무엇) → (건드리면 실제로 생기는 일)");
   L.push("**요하쿠도에 온 이유**: (한 문장)");
-  if(wantTalk && MODE==="19" && start==="1"){
+  if(wantTalk && MODE==="19" && start==="2"){
     L.push("");
-    L.push("이어서 거울 속에서 나를 본 후유코의 한마디. 롤플레이 출력과 같은 형식으로:");
-    L.push("**─冬子 |** *후유코*");
+    L.push("이어서 내 손목을 붙잡은 이오리의 한마디. 롤플레이 출력과 같은 형식으로:");
+    L.push("**─伊織 |** *이오리*");
     L.push("“(일본어 대사)”");
     L.push("*『(한국어 번역)』*");
-  } else if(wantTalk && MODE==="19" && start==="2"){
+  } else if(wantTalk && MODE==="19" && start==="1"){
     L.push("");
     L.push("이어서 나를 본 쿠로(인간형)의 한마디. 롤플레이 출력과 같은 형식으로:");
     L.push("**─玄 |** *쿠로*");
@@ -841,7 +841,7 @@ function genOOC(){
   }
   if(wantReply){
     const SC = MODE==="19"
-      ? {"1":"보름밤 경대 거울 앞, 거울 속 낯선 여자에게 '그 얼굴, 잠깐 빌려줄래요?'라는 말을 들은 직후. 상대 이름은 모름","2":"시간이 멈춘 새벽, 고양이 귀가 달린 청년이 '도와라'며 떨리는 손을 내민 직후. 상대 이름은 모름"}
+      ? {"2":"축제 밤, 여우 가면 행렬에서 손목을 잡혀 골목으로 끌려 나온 직후. 처음 보는 남자가 '손 놓으면 또 끌려가요'라며 손을 안 놓는 중. 상대 이름은 모름","1":"시간이 멈춘 새벽, 고양이 귀 청년이 비틀거리며 내 어깨에 기댔다가 소매를 쥔 채 '날 밝을 때까지 여기 있어. 아무것도 안 해도 돼, 옆에만 있으면 돼'라고 한 직후. 상대 이름은 모름"}
       : {"1":"비 오는 해질녘, 처음 요하쿠도에 손님으로 들어서는 장면. 상대 이름은 모름","2":"알바 면접에서 방금 합격해 앞치마를 건네받은 직후. 상대 이름은 모름"};
     const sc = SC[start] || "위 자유설정 서사가 시작되는 장면";
     L.push("");
@@ -852,7 +852,7 @@ function genOOC(){
   }
   return L.join("\n");
 }
-function renderOOC(){ const s3=$("#oStart").value==="3"; const st=$("#oStart").value; $("#oTalkLbl").textContent = MODE==="19"&&st==="1" ? "간단 도감에 후유코 한마디 넣기" : MODE==="19"&&st==="2" ? "간단 도감에 쿠로 한마디 넣기" : "간단 도감에 이오리·쿠로 한마디 넣기"; $("#oSeedWrap").style.display = s3 ? "" : "none"; $("#oStartHint").style.display = s3 ? "" : "none"; $("#oReplyWrap").style.display = s3 ? "none" : ""; $("#oTalkWrap").style.display = s3 ? "none" : ""; const ta=$("#oocTa"); ta.value=genOOC(); $("#oocCnt").textContent=`${ta.value.length}자`; fit(ta); }
+function renderOOC(){ const s3=$("#oStart").value==="3"; const st=$("#oStart").value; $("#oTalkLbl").textContent = MODE==="19"&&st==="1" ? "간단 도감에 쿠로 한마디 넣기" : MODE==="19"&&st==="2" ? "간단 도감에 이오리 한마디 넣기" : "간단 도감에 이오리·쿠로 한마디 넣기"; $("#oSeedWrap").style.display = s3 ? "" : "none"; $("#oStartHint").style.display = s3 ? "" : "none"; $("#oReplyWrap").style.display = s3 ? "none" : ""; $("#oTalkWrap").style.display = s3 ? "none" : ""; const ta=$("#oocTa"); ta.value=genOOC(); $("#oocCnt").textContent=`${ta.value.length}자`; fit(ta); }
 document.querySelectorAll("[data-o]").forEach(el=>{ el.addEventListener("input",renderOOC); el.addEventListener("change",renderOOC); });
 $("#oocTa").addEventListener("input",e=>{ $("#oocCnt").textContent=`${e.target.value.length}자`; fit(e.target); });
 $("#oocCopy").onclick=()=>copy($("#oocTa").value);
